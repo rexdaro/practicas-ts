@@ -243,3 +243,25 @@ const mezclar = <T>(arr1: T[], arr2: T[]): T[] => {
     return [...arr1, ...arr2];
 }
 
+const convertirAArray = <T>(dato: T): Array<T> => {
+    return [dato];
+}
+
+const sumarPropiedad = <T>(productos: T[] , prop: keyof T): number => {
+    return productos.reduce((sum, producto) => sum + Number(producto[prop]), 0 );
+}
+
+const productos = [
+  { nombre: "Camisa", precio: 20 },
+  { nombre: "Pantalón", precio: 30 }
+];
+
+// console.log(sumarPropiedad(productos, "precio")); // 50
+
+const filtrarPorTipo = <T>(array: any[], tipo: string): T[] => {
+   return array.filter((elemento) => typeof elemento === tipo) as T[];
+}
+
+const mixto = [1, "Hola", true, 2, "Mundo"];
+
+console.log(filtrarPorTipo<string>(mixto, "number")); // ["Hola", "Mundo"]

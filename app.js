@@ -163,3 +163,19 @@ const par = (num) => {
 const mezclar = (arr1, arr2) => {
     return [...arr1, ...arr2];
 };
+const convertirAArray = (dato) => {
+    return [dato];
+};
+const sumarPropiedad = (productos, prop) => {
+    return productos.reduce((sum, producto) => sum + Number(producto[prop]), 0);
+};
+const productos = [
+    { nombre: "Camisa", precio: 20 },
+    { nombre: "Pantalón", precio: 30 }
+];
+// console.log(sumarPropiedad(productos, "precio")); // 50
+const filtrarPorTipo = (array, tipo) => {
+    return array.filter((elemento) => typeof elemento === tipo);
+};
+const mixto = [1, "Hola", true, 2, "Mundo"];
+console.log(filtrarPorTipo(mixto, "number")); // ["Hola", "Mundo"]

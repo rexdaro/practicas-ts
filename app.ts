@@ -208,60 +208,68 @@
 // const duplicados = mapear(numeros, num => num * 2); // [2, 4, 6
 
 
-const filtrar = <T>(array: T[], condicion: (item: T) => boolean): T[] => {
-    return array.filter(condicion);
-}
+// const filtrar = <T>(array: T[], condicion: (item: T) => boolean): T[] => {
+//     return array.filter(condicion);
+// }
 
-const primero = <T>(array: T[]): T | undefined => {
-    return array[0];
-}
+// const primero = <T>(array: T[]): T | undefined => {
+//     return array[0];
+// }
 
-const ultimo = <T>(array: T[]): T | undefined =>{
-    return array[array.length-1];
-}
+// const ultimo = <T>(array: T[]): T | undefined =>{
+//     return array[array.length-1];
+// }
 
-// console.log(primero([1, 2, 3])); // 1
-// console.log(primero(["a", "b"])); // "a"
+// // console.log(primero([1, 2, 3])); // 1
+// // console.log(primero(["a", "b"])); // "a"
 
-// console.log(ultimo([1, 2, 3])); // 3
-// console.log(ultimo(["a", "b"])); // "b"
+// // console.log(ultimo([1, 2, 3])); // 3
+// // console.log(ultimo(["a", "b"])); // "b"
 
-const longitud = <T>(array: T[] | string): number | undefined => {
-    return array.length;
+// const longitud = <T>(array: T[] | string): number | undefined => {
+//     return array.length;
     
+// }
+
+// // console.log(longitud([1, 2, 3])); // 3
+// // console.log(longitud("Hola")); // 4
+
+// const par = <T extends number>(num: T): boolean | undefined => {
+//     return (num % 2 === 0);
+// }
+
+
+// const mezclar = <T>(arr1: T[], arr2: T[]): T[] => {
+//     return [...arr1, ...arr2];
+// }
+
+// const convertirAArray = <T>(dato: T): Array<T> => {
+//     return [dato];
+// }
+
+// const sumarPropiedad = <T>(productos: T[] , prop: keyof T): number => {
+//     return productos.reduce((sum, producto) => sum + Number(producto[prop]), 0 );
+// }
+
+// const productos = [
+//   { nombre: "Camisa", precio: 20 },
+//   { nombre: "Pantalón", precio: 30 }
+// ];
+
+// // console.log(sumarPropiedad(productos, "precio")); // 50
+
+// const filtrarPorTipo = <T>(array: any[], tipo: string): T[] => {
+//    return array.filter((elemento) => typeof elemento === tipo) as T[];
+// }
+
+// const mixto = [1, "Hola", true, 2, "Mundo"];
+
+// console.log(filtrarPorTipo<string>(mixto, "number")); // ["Hola", "Mundo"]
+
+
+const contarCoincidencias = <T>(arr: T[], elemento: T): number | undefined => {
+    
+    return arr.filter(item => elemento === item).length;
 }
-
-// console.log(longitud([1, 2, 3])); // 3
-// console.log(longitud("Hola")); // 4
-
-const par = <T extends number>(num: T): boolean | undefined => {
-    return (num % 2 === 0);
-}
-
-
-const mezclar = <T>(arr1: T[], arr2: T[]): T[] => {
-    return [...arr1, ...arr2];
-}
-
-const convertirAArray = <T>(dato: T): Array<T> => {
-    return [dato];
-}
-
-const sumarPropiedad = <T>(productos: T[] , prop: keyof T): number => {
-    return productos.reduce((sum, producto) => sum + Number(producto[prop]), 0 );
-}
-
-const productos = [
-  { nombre: "Camisa", precio: 20 },
-  { nombre: "Pantalón", precio: 30 }
-];
-
-// console.log(sumarPropiedad(productos, "precio")); // 50
-
-const filtrarPorTipo = <T>(array: any[], tipo: string): T[] => {
-   return array.filter((elemento) => typeof elemento === tipo) as T[];
-}
-
-const mixto = [1, "Hola", true, 2, "Mundo"];
-
-console.log(filtrarPorTipo<string>(mixto, "number")); // ["Hola", "Mundo"]
+console.log(contarCoincidencias([1, 2, 2, 3], 2)); // 2
+console.log(contarCoincidencias(["a", "b", "a"], "a")); // 2
